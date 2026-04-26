@@ -6,7 +6,7 @@
     <div class="flex items-center justify-between gap-4">
       <RouterLink
         to="/"
-        class="text-lg md:text-xl font-black tracking-[0.25em] md:tracking-widest gradient-text"
+        class="text-lg md:text-xl font-black tracking-[0.25em] md:tracking-widest"
         style="font-family: 'Orbitron', sans-serif;"
         @click="closeMenu"
       >
