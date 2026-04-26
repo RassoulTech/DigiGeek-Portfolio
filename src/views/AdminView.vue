@@ -9,9 +9,9 @@
           Admin — DigiGeek
         </h1>
         <div class="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
-          <a href="/" class="ghost-btn px-5 py-2 rounded-full text-sm font-semibold text-center w-full sm:w-auto">
+          <RouterLink to="/" class="ghost-btn px-5 py-2 rounded-full text-sm font-semibold text-center w-full sm:w-auto">
             ← Retour au site
-          </a>
+          </RouterLink>
           <button @click="logout" class="px-5 py-2 rounded-full text-sm font-semibold transition-all w-full sm:w-auto"
             style="border: 1px solid rgba(248,113,113,0.4); color: #f87171;">
             Déconnexion
@@ -183,12 +183,12 @@
 import { ref, onMounted } from 'vue'
 import { supabase } from '../lib/supabase'
 
-import { useRouter } from 'vue-router'
+import { RouterLink, useRouter } from 'vue-router'
 const router = useRouter()
 
 const logout = async () => {
   await supabase.auth.signOut()
-  router.push('/login')
+  await router.replace('/login')
 }
 
 const activeTab = ref('projects')
