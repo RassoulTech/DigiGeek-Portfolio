@@ -10,7 +10,7 @@
         style="font-family: 'Orbitron', sans-serif;"
         @click="closeMenu"
       >
-        <span style="color: #60a5fa;">Digi</span><span style="color: #fff;">Geek</span>
+        <span style="color: #60a5fa;">DIGI</span><span style="color: #fff;">GEEK</span>
       </RouterLink>
 
       <button

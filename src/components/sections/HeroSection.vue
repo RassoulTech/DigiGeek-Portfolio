@@ -30,12 +30,12 @@
         En tant que développeur web freelance, je conçois des expériences web modernes, rapides et mémorables.
       </p>
       <div class="flex gap-4 justify-center flex-wrap">
-        <a href="#projects" class="px-8 py-4 rounded-full font-bold tracking-widest uppercase text-sm neon-btn">
+        <RouterLink :to="{ path: '/', hash: '#projects' }" class="px-8 py-4 rounded-full font-bold tracking-widest uppercase text-sm neon-btn">
           Voir mes projets
-        </a>
-        <a href="#contact" class="px-8 py-4 rounded-full font-bold tracking-widest uppercase text-sm ghost-btn">
+        </RouterLink>
+        <RouterLink :to="{ path: '/', hash: '#contact' }" class="px-8 py-4 rounded-full font-bold tracking-widest uppercase text-sm ghost-btn">
           Me contacter
-        </a>
+        </RouterLink>
       </div>
     </div>
 
@@ -48,6 +48,10 @@
     </div>
   </section>
 </template>
+
+<script setup>
+import { RouterLink } from 'vue-router'
+</script>
 
 <style scoped>
 .blob {
