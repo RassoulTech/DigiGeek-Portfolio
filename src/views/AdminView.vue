@@ -3,16 +3,16 @@
     <div class="max-w-5xl mx-auto">
 
       <!-- Header -->
-      <div class="flex items-center justify-between mb-12">
-        <h1 class="text-3xl font-black gradient-text"
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5 mb-12">
+        <h1 class="text-2xl sm:text-3xl font-black gradient-text leading-tight"
           style="font-family: 'Orbitron', sans-serif;">
           Admin — DigiGeek
         </h1>
-        <div class="flex gap-3">
-          <a href="/" class="ghost-btn px-5 py-2 rounded-full text-sm font-semibold">
+        <div class="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+          <a href="/" class="ghost-btn px-5 py-2 rounded-full text-sm font-semibold text-center w-full sm:w-auto">
             ← Retour au site
           </a>
-          <button @click="logout" class="px-5 py-2 rounded-full text-sm font-semibold transition-all"
+          <button @click="logout" class="px-5 py-2 rounded-full text-sm font-semibold transition-all w-full sm:w-auto"
             style="border: 1px solid rgba(248,113,113,0.4); color: #f87171;">
             Déconnexion
           </button>
