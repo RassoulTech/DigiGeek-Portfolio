@@ -4,12 +4,14 @@
     style="background: rgba(5,10,25,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(59,130,246,0.15);"
   >
     <div class="flex items-center justify-between gap-4">
-      <span
+      <RouterLink
+        to="/"
         class="text-lg md:text-xl font-black tracking-[0.25em] md:tracking-widest gradient-text"
         style="font-family: 'Orbitron', sans-serif;"
+        @click="closeMenu"
       >
         <span style="color: #60a5fa;">Digi</span><span style="color: #fff;">Geek</span>
-      </span>
+      </RouterLink>
 
       <button
         type="button"
@@ -27,10 +29,10 @@
       </button>
 
       <ul class="hidden md:flex gap-8 text-sm tracking-widest uppercase items-center">
-        <li v-for="link in links" :key="link.href">
-          <a :href="link.href" class="nav-link" style="font-family: 'Inter', sans-serif;">
+        <li v-for="link in links" :key="link.hash">
+          <RouterLink :to="link" class="nav-link" style="font-family: 'Inter', sans-serif;">
             {{ link.label }}
-          </a>
+          </RouterLink>
         </li>
         <li v-if="isAdmin">
           <RouterLink
@@ -60,15 +62,15 @@
         style="background: rgba(8,15,35,0.92); border-color: rgba(96,165,250,0.14);"
       >
         <ul class="flex flex-col gap-3 text-xs tracking-[0.25em] uppercase">
-          <li v-for="link in links" :key="`mobile-${link.href}`">
-            <a
-              :href="link.href"
+          <li v-for="link in links" :key="`mobile-${link.hash}`">
+            <RouterLink
+              :to="link"
               class="nav-link-mobile block px-3 py-3 rounded-xl"
               style="font-family: 'Inter', sans-serif;"
               @click="closeMenu"
             >
               {{ link.label }}
-            </a>
+            </RouterLink>
           </li>
           <li v-if="isAdmin">
             <RouterLink
@@ -102,11 +104,11 @@ import { RouterLink } from 'vue-router'
 import { supabase } from '../../lib/supabase'
 
 const links = [
-  { label: 'Accueil',      href: '#hero' },
-  { label: 'À propos',    href: '#about' },
-  { label: 'Compétences', href: '#skills' },
-  { label: 'Projets',     href: '#projects' },
-  { label: 'Contact',     href: '#contact' },
+  { label: 'Accueil', path: '/', hash: '#hero' },
+  { label: 'A propos', path: '/', hash: '#about' },
+  { label: 'Competences', path: '/', hash: '#skills' },
+  { label: 'Projets', path: '/', hash: '#projects' },
+  { label: 'Contact', path: '/', hash: '#contact' },
 ]
 
 const isAdmin = ref(false)
@@ -117,7 +119,9 @@ const closeMenu = () => {
 }
 
 onMounted(async () => {
-  const { data: { session } } = await supabase.auth.getSession()
+  const {
+    data: { session },
+  } = await supabase.auth.getSession()
   isAdmin.value = !!session
 
   supabase.auth.onAuthStateChange((_event, session) => {
@@ -132,17 +136,26 @@ onMounted(async () => {
   position: relative;
   transition: color 0.3s ease;
 }
+
 .nav-link::after {
   content: '';
   position: absolute;
-  bottom: -4px; left: 0;
-  width: 0; height: 2px;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
   background: linear-gradient(90deg, #1d4ed8, #60a5fa);
   transition: width 0.3s ease;
   border-radius: 2px;
 }
-.nav-link:hover { color: #60a5fa; }
-.nav-link:hover::after { width: 100%; }
+
+.nav-link:hover {
+  color: #60a5fa;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
 
 .nav-link-mobile {
   color: rgba(255,255,255,0.75);
@@ -171,9 +184,17 @@ onMounted(async () => {
   transition: transform 0.3s ease, opacity 0.3s ease, top 0.3s ease;
 }
 
-.menu-icon span:nth-child(1) { top: 0; }
-.menu-icon span:nth-child(2) { top: 6px; }
-.menu-icon span:nth-child(3) { top: 12px; }
+.menu-icon span:nth-child(1) {
+  top: 0;
+}
+
+.menu-icon span:nth-child(2) {
+  top: 6px;
+}
+
+.menu-icon span:nth-child(3) {
+  top: 12px;
+}
 
 .menu-icon.open span:nth-child(1) {
   top: 6px;
