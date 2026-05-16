@@ -1,3 +1,4 @@
+<!-- Section Projets : portfolio commercial, prouve les réalisations passées pour convertir le prospect en client -->
 <template>
   <section id="projects" class="py-32 px-6" style="background: #070d1f;">
     <div class="max-w-6xl mx-auto">

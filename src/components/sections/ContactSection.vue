@@ -1,3 +1,4 @@
+<!-- Section Contact : étape finale du tunnel de vente, déclenche la prise de contact et la signature du devis -->
 <template>
   <section id="contact" class="py-32 px-6" style="background: #050a19;">
     <div class="max-w-2xl mx-auto">
@@ -72,6 +73,7 @@ const fields = [
   { key: 'message', label: 'Message', type: 'textarea', placeholder: 'Ton message...' },
 ]
 
+// Envoi du message : transforme la demande entrante en lead commercial qualifié
 const sendMessage = async () => {
   if (!form.value.name || !form.value.email || !form.value.message) {
     error.value = true

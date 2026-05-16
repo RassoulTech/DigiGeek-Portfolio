@@ -1,3 +1,4 @@
+<!-- Section Compétences : démontre la valeur technique vendue au client et justifie le tarif appliqué -->
 <template>
   <section id="skills" class="py-32 px-6" style="background: #050a19;">
     <div class="max-w-4xl mx-auto">

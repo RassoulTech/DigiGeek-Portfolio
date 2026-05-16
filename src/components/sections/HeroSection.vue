@@ -1,3 +1,4 @@
+<!-- Section Hero : vitrine commerciale principale, capte l'attention du prospect et présente l'offre freelance -->
 <template>
   <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden"
     style="background: #050a19;">
@@ -29,6 +30,7 @@
         style="color: rgba(255,255,255,0.5); font-family: 'Inter', sans-serif;">
         En tant que développeur web freelance, je conçois des expériences web modernes, rapides et mémorables.
       </p>
+      <!-- Boutons d'appel à l'action : conversion du visiteur en prospect ou en client -->
       <div class="flex gap-4 justify-center flex-wrap">
         <RouterLink :to="{ path: '/', hash: '#projects' }" class="px-8 py-4 rounded-full font-bold tracking-widest uppercase text-sm neon-btn">
           Voir mes projets

@@ -1,3 +1,4 @@
+<!-- Section À propos : argumentaire de vente, met en avant l'expertise et rassure le client potentiel avant le devis -->
 <template>
   <section id="about" class="py-32 px-6 overflow-hidden" style="background: #070d1f;">
     <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-16 items-center">
@@ -21,6 +22,7 @@
           au design et à l'expérience utilisateur.
         </p>
 
+        <!-- Chiffres clés : preuves sociales utilisées comme leviers commerciaux pour crédibiliser l'offre -->
         <div class="flex gap-4 md:gap-8 mt-10">
           <div v-for="stat in stats" :key="stat.label" class="text-center">
             <p class="text-3xl font-black gradient-text" style="font-family: 'Orbitron', sans-serif;">
