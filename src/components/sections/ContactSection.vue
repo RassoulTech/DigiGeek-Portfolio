@@ -15,25 +15,14 @@
       <div class="glass-card rounded-2xl p-8" data-anim="fade">
         <div class="flex flex-col gap-5">
 
-          <div>
+          <div v-for="field in fields" :key="field.key">
             <label class="block text-sm mb-2"
-              style="color: rgba(255,255,255,0.5); font-family: 'Inter', sans-serif;">Nom</label>
-            <input v-model="form.name" type="text" placeholder="Ton nom"
-              class="input-field w-full px-4 py-3 rounded-xl" />
-          </div>
-
-          <div>
-            <label class="block text-sm mb-2"
-              style="color: rgba(255,255,255,0.5); font-family: 'Inter', sans-serif;">Email</label>
-            <input v-model="form.email" type="email" placeholder="ton@email.com"
-              class="input-field w-full px-4 py-3 rounded-xl" />
-          </div>
-
-          <div>
-            <label class="block text-sm mb-2"
-              style="color: rgba(255,255,255,0.5); font-family: 'Inter', sans-serif;">Message</label>
-            <textarea v-model="form.message" rows="5" placeholder="Ton message..."
+              style="color: rgba(255,255,255,0.5); font-family: 'Inter', sans-serif;">{{ field.label }}</label>
+            <textarea v-if="field.type === 'textarea'" v-model="form[field.key]" rows="5"
+              :placeholder="field.placeholder"
               class="input-field w-full px-4 py-3 rounded-xl resize-none"></textarea>
+            <input v-else v-model="form[field.key]" :type="field.type" :placeholder="field.placeholder"
+              class="input-field w-full px-4 py-3 rounded-xl" />
           </div>
 
           <button @click="sendMessage" :disabled="sending"
